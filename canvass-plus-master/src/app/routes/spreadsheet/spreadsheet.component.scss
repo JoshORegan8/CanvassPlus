@@ -1,0 +1,25 @@
+@import 'src/palette.scss';
+
+.fas.fa-search, .fas.fa-times-circle {
+    color: $secondary;
+}
+
+table {
+    width: 100%;
+}
+
+.mat-form-field {
+    width: 100%;
+}
+
+.mat-row:hover {
+    background-color: rgba(0, 0, 0, 0.025);
+}
+
+.positive {
+    color: $primary;
+}
+
+.negative {
+    color: $warn;
+}

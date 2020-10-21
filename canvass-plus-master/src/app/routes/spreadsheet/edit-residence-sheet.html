@@ -1,0 +1,31 @@
+<h1>Edit this Residence</h1>
+
+<form [formGroup]="editResidenceForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="standard" hideRequiredMarker>
+        <mat-label>Status</mat-label>
+        <mat-select formControlName="status">
+            <mat-option value="Positive">Positive</mat-option>
+            <mat-option value="Neutral">Neutral</mat-option>
+            <mat-option value="Negative">Negative</mat-option>
+        </mat-select>
+
+        <mat-error *ngIf="!editResidenceForm.get('status').valid">
+            Residence status is required
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="standard" class="address" hideRequiredMarker>
+        <mat-label>Address</mat-label>
+        <input matInput required type="text" formControlName="address">
+        <mat-error *ngIf="!editResidenceForm.get('address').valid">
+            Address is required
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="standard">
+        <mat-label>Contact number</mat-label>
+        <input matInput type="tel" pattern="[0-9]{0,}" formControlName="contact">
+    </mat-form-field>
+
+    <button mat-flat-button color="primary" type="submit" [disabled]="!editResidenceForm.valid || !editResidenceForm.dirty">Apply</button>
+</form>

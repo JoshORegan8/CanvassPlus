@@ -1,0 +1,63 @@
+<mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+<div class="spinner" *ngIf="loading"><mat-progress-spinner mode="indeterminate"></mat-progress-spinner></div>
+
+<h1>Canvass&#43;</h1>
+
+<mat-tab-group mat-stretch-tabs dynamicHeight (selectedTabChange)="onTabChange($event)">
+    <mat-tab label="Login">
+        <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+            <mat-form-field appearance="standard" hideRequiredMarker>
+                <mat-label>Email</mat-label>
+                <input matInput required type="email" formControlName="loginEmail">
+
+                <mat-error *ngIf="!loginForm.get('loginEmail').valid">
+                    Your email address is required
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="standard" hideRequiredMarker>
+                <mat-label>Password</mat-label>
+                <input matInput required type="password" formControlName="loginPassword">
+
+                <mat-error *ngIf="!loginForm.get('loginPassword').valid">
+                    Your password is required
+                </mat-error>
+            </mat-form-field>
+
+            <button mat-flat-button color="primary" type="submit" [disabled]="!loginForm.valid">Login</button>
+        </form>
+    </mat-tab>
+
+    <mat-tab label="Register">
+        <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+            <mat-form-field appearance="standard" hideRequiredMarker>
+                <mat-label>Name</mat-label>
+                <input matInput required type="text" formControlName="registerName">
+
+                <mat-error *ngIf="!registerForm.get('registerName').valid">
+                    Enter a valid name
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="standard" hideRequiredMarker>
+                <mat-label>Email</mat-label>
+                <input matInput required type="email" formControlName="registerEmail">
+
+                <mat-error *ngIf="!registerForm.get('registerEmail').valid">
+                    Enter a valid email
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="standard" hideRequiredMarker>
+                <mat-label>Password</mat-label>
+                <input matInput required type="password" formControlName="registerPassword">
+
+                <mat-error *ngIf="!registerForm.get('registerPassword').valid">
+                    Enter a valid password
+                </mat-error>
+            </mat-form-field>
+
+            <button mat-flat-button color="primary" type="submit" [disabled]="!registerForm.valid">Register</button>
+        </form>
+    </mat-tab>
+</mat-tab-group>

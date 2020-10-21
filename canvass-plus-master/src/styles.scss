@@ -1,0 +1,51 @@
+@import 'src/palette.scss';
+@import '~@angular/material/theming';
+@include mat-core();
+$canvass-primary: mat-palette($mat-teal);
+$canvass-accent: mat-palette($mat-grey, 900);
+$canvass-warn: mat-palette($mat-red);
+$canvass-theme: mat-light-theme($canvass-primary, $canvass-accent, $canvass-warn);
+@include angular-material-theme($canvass-theme);
+
+html, body {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+body {
+    background-color: #FFFFFF !important;
+    margin: 0 !important;
+    font-family: Roboto, "Helvetica Neue", sans-serif !important;
+}
+
+.mat-snack-bar-container {
+	color: $white !important;
+	background: $primary !important;
+	box-shadow: none !important;
+	font-weight: 500 !important;
+}
+
+.mat-progress-bar:not(.preserve) {
+	margin: 0 !important;
+	padding: 0 !important;
+	position: fixed !important;
+	top: 0px !important;
+	left: 0px !important;
+	z-index: 999 !important;
+}
+
+.spinner:not(.preserve) {
+	position: fixed !important;
+	left: 50% !important;
+	top: 40% !important;
+	z-index: 999 !important;
+	margin: 0 !important;
+	padding: 0 !important;
+
+	.mat-progress-spinner {
+		position: relative !important;
+		left: -50% !important;
+		margin: 0 !important;
+		padding: 0 !important;
+	}
+}

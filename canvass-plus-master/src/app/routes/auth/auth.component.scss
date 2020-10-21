@@ -1,0 +1,32 @@
+@import 'src/palette.scss';
+
+h1 {
+    background-color: $primary;
+    color: $white;
+    padding: 0.5em 0;
+    font-weight: 500;
+    border-radius: 0.1em;
+}
+
+h1, .mat-tab-group {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.mat-tab-group {
+	padding-top: 2em;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+}
+
+form > * {
+	margin-top: 1em;
+}
+
+button {
+	margin-top: 1em;
+}

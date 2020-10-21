@@ -1,0 +1,35 @@
+<mat-toolbar *ngIf="user !== undefined && user !== null">
+    <button mat-flat-button [routerLink]="['/']" color="primary">
+        Canvass&#43;
+    </button>
+
+	<span class="fill-space"></span>
+
+    <button mat-button [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <mat-icon>assignment</mat-icon>
+        <span *ngIf="!isMobile">Spreadsheet</span>
+    </button>
+
+    <button mat-button [matMenuTriggerFor]="moreMenu" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" *ngIf="user !== undefined">
+        <mat-icon>person</mat-icon>
+        <span *ngIf="!isMobile">Account</span>
+    </button>
+    <mat-menu #moreMenu="matMenu">
+        <button mat-menu-item [routerLink]="['/profile']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" disabled>
+            <mat-icon>verified_user</mat-icon>
+            {{ user['email'] }}
+        </button>
+
+        <button mat-menu-item (click)="onLogout()">
+            <mat-icon>exit_to_app</mat-icon>
+            Logout
+        </button>
+    </mat-menu>
+
+    &nbsp;
+
+    <button mat-flat-button color="primary" (click)="onAddResidence()">
+        <mat-icon>add_circle_outline</mat-icon>
+        <span *ngIf="!isMobile">Add a new residence</span>
+    </button>
+</mat-toolbar>
